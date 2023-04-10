@@ -1,0 +1,49 @@
+:root {
+  /* ### colors  */
+  /* ##primary  */
+  --clr-palette-primary-300: hsl(166, 100%, 37%);
+  --clr-palette-primary-400: hsl(0, 100%, 67%);
+  --clr-palette-primary-600: hsl(39, 100%, 56%);
+  --clr-palette-primary-800: #1125d4;
+
+  /* gradients  */
+
+  --clr-palette-gradient-400: hsl(252, 100%, 67%);
+  --clr-palette-gradient-600: hsl(241, 81%, 54%);
+
+  --clr-palette-gradient-700: hsl(256, 72%, 46%);
+  --clr-palette-gradient-900: hsla(241, 72%, 46%, 0);
+
+  --clr-palette-gradient-1: --clr-gradient-400, --clr-gradient-600;
+  --clr-palette-gradient-2: --clr-gradient-700, --clr-gradient-900;
+
+  /* neutral  */
+  --white: hsl(0, 0%, 100%);
+  --clr-palette-neutral-50: hsl(222, 100%, 96%);
+  --clr-palette-neutral-100: hsl(241, 100%, 89%);
+  --clr-palette-neutral-800: hsl(224, 30%, 27%);
+
+  /* ### Notes */
+  /* Use transparency to get the colour variations necessary to match the design. Hint: look into using `hsla()`. */
+
+  /* ### Typography */
+
+  /* ## Body Copy */
+  /* - Font size (paragraphs): 18px */
+  --fs-body: 1.125rem;
+
+  /* ## Font */
+  --fw-500: 500;
+  --fw-700: 700;
+  --fw-800: 800;
+
+  --ff-primary: "Hanken Grotesk", sans-serif;
+}
+
+.attribution {
+  font-size: 0.6875rem;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
