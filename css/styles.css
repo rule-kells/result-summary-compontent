@@ -20,8 +20,19 @@
   --clr-palette-gradient-700: hsl(256, 72%, 46%);
   --clr-palette-gradient-900: hsla(241, 72%, 46%, 0);
 
-  --clr-palette-gradient-1: --clr-gradient-400, --clr-gradient-600;
-  --clr-palette-gradient-2: --clr-gradient-700, --clr-gradient-900;
+  --clr-palette-gradient-1: linear-gradient(
+    180deg,
+    var(--clr-palette-gradient-400) 0%,
+    hsl(252, 100%, 63%) 0.01%,
+    var(--clr-palette-gradient-600) 100%
+  );
+
+  --clr-palette-gradient-2: linear-gradient(
+    180deg,
+    var(--clr-palette-gradient-700) 0%,
+    var(--clr-palette-gradient-900) 100%,
+    var(--clr-palette-gradient-900) 100%
+  );
 
   /* neutral  */
   --white: hsl(0, 0%, 100%);
@@ -44,6 +55,7 @@
   --fs-xl: 3.5rem;
   --fs-l: 1.5rem;
   --fs-m: 1.125rem;
+  --fs-s: 1rem;
   --fs-body: 1rem;
   --fs-btn: 1.125rem;
 
@@ -57,11 +69,12 @@
   --box-shadow: 0px 30px 60px 0px hsla(224, 82%, 58%, 0.15);
 }
 
-@media (min-width: 600px) {
+@media (min-width: 768px) {
   :root {
     --fs-xl: 4.5rem;
     --fs-l: 2rem;
     --fs-m: 1.5rem;
+    --fs-s: 1.125rem;
     --fs-body: 1.125rem;
   }
 }
@@ -86,8 +99,8 @@ body {
   background-color: var(--clr-palette-neutral-50);
   font-family: var(--ff-primary);
   font-size: var(--fs-body);
+  font-weight: var(--fw-500);
   line-height: 1.5em;
-  margin: 0;
   /*     min-height: calc(100vh - 100px); */
 }
 
@@ -98,6 +111,7 @@ body {
     min-height: 100vh;
   }
 }
+
 /* any ul that has a class on it has these properties */
 ul[class] {
   list-style: none;
@@ -130,15 +144,248 @@ Flow content:
 consistency using utilities classes to behave like regular flow content when we have done some CSS resetting. 
 Layout Land and Cube CSS
 */
-.flow-content > * + * {
-  margin-top: 1rem;
+.spacer > * + * {
+  margin-bottom: 1rem;
 }
 
+/* fonts  */
+.fs-xl {
+  color: var(--clr-heading);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-800);
+}
+.fs-l {
+  color: var(--clr-heading);
+  font-size: var(--fs-l);
+  font-weight: var(--fw-700);
+}
+
+.fs-m {
+  color: var(--clr-heading);
+  font-size: var(--fs-m);
+  font-weight: var(--fw-700);
+}
+
+.fs-s {
+  color: var(--clr-heading);
+  font-size: var(--fs-s);
+  font-weight: var(--fw-500);
+}
+
+.fs-btn {
+  font-size: var(--fs-btn);
+}
+
+/* card component  */
+
 .card {
-  width: clamp(20ch, 90%, 46rem);
-  background-color: var(--white);
+  --accent: var(--clr-palette-gradient-600);
+  --clr-fg-light: hsl(var(--clr-palette-neutral-hsl-800), 0.5);
+  --clr-fg-accent: var(--clr-palette-neutral-100);
+  --circle: var(--clr-palette-gradient-2);
+
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .card {
+    width: clamp(20ch, 90%, 46rem);
+    border-radius: var(--br);
+    display: flex;
+  }
+}
+
+.card__result {
+  padding: 24px 57px 40px;
+  border-radius: 0 0 var(--br) var(--br);
+}
+
+.result--accent {
+  --clr-heading: var(--white);
+
+  background: var(--clr-palette-gradient-1);
+  color: var(--clr-fg-accent);
+}
+
+.result__content--title {
+  margin-bottom: 8px;
+}
+
+.result--accent .fs-m {
+  color: var(--clr-fg-accent);
+}
+
+.result__score {
+  color: hsl(var(--clr-palette-neutral-hsl-100), 0.51);
+  font-weight: var(--fw-700);
+  margin: 24px auto 24px;
+  line-height: 1.3;
+}
+
+.circle {
+  --br: 50%;
+  max-width: 140px;
+  background: var(--circle);
+  border-radius: var(--br);
+  padding: 25px 39px 22px;
+}
+
+.fs-score-num {
+  display: block;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.card__summary {
+  padding: 24px 30px 30px;
+  text-align: left;
+  flex: 1;
+}
+
+.card__summary > div {
+  --br: 12px;
+  --reaction-bg: hsl(var(--clr-palette-primary-hsl-400), 0.1);
+  --memory-bg: hsl(var(--clr-palette-primary-hsl-600), 0.1);
+  --verbal-bg: hsl(var(--clr-palette-primary-hsl-300), 0.1);
+  --visual-bg: hsl(var(--clr-palette-primary-hsl-800), 0.1);
+  /* --memory-bg: ; */
+
+  width: max(100%, 288px);
+
+  display: flex;
+  align-items: center;
+  background: var(--clr-palette-neutral-100);
+  padding: 1.0625rem 1rem 1rem;
+  border-radius: var(--br);
+}
+
+.summary--light {
+  --clr-heading: var(--clr-palette-neutral-800);
+  color: var(--clr-fg-light);
+}
+
+.card__summary > .reaction {
+  background: var(--reaction-bg);
+}
+
+.card__summary > .memory {
+  background: var(--memory-bg);
+}
+
+.card__summary > .verbal {
+  background: var(--verbal-bg);
+}
+
+.card__summary > .visual {
+  background: var(--visual-bg);
+}
+
+.summary__title {
+  margin-bottom: 24px;
+}
+
+.reaction__title {
+  color: var(--clr-palette-primary-400);
+}
+
+.memory__title {
+  color: var(--clr-palette-primary-600);
+}
+
+.verbal__title {
+  color: var(--clr-palette-primary-300);
+}
+
+.visual__title {
+  color: var(--clr-palette-primary-800);
+}
+
+.visual {
+  margin-bottom: 0;
+}
+
+.btn {
+  display: inline-block;
+  margin: 24px 0 0;
+}
+
+.reaction > img,
+.memory > img,
+.verbal > img,
+.visual > img {
+  margin-right: 12px;
+}
+
+.reaction__score--num.fs-s,
+.memory__score--num.fs-s,
+.verbal__score--num.fs-s,
+.visual__score--num.fs-s {
+  font-weight: var(--fw-700);
+}
+
+.reaction > p,
+.memory > p,
+.verbal > p,
+.visual > p {
+  margin-inline-start: auto;
+}
+
+.result__content--body {
+  max-width: 16.25rem;
+  margin: 0 auto;
+}
+
+.btn {
+  --br: 128px;
+
+  cursor: pointer;
+  width: 100%;
+  background: var(--clr-palette-neutral-800);
+  color: var(--white);
+  border: none;
+  margin-top: 24px;
+  padding: 17px 0;
   box-shadow: var(--box-shadow);
   border-radius: var(--br);
+}
+
+@media (min-width: 768px) {
+  .card__result {
+    border-radius: var(--br);
+    padding: 38px 54px 46px;
+  }
+
+  .card > * {
+    flex: 1;
+  }
+
+  .circle {
+    max-width: 200px;
+    padding: 55px 59px 46px;
+  }
+
+  .result__content--title {
+    margin-bottom: 14px;
+  }
+
+  .card__summary {
+    padding: 38px 40px 46px;
+  }
+
+  .summary__title {
+    margin-bottom: 28px;
+  }
+
+  .btn {
+    margin-top: 41px;
+  }
+
+  .btn:active,
+  .btn:hover {
+    background: var(--clr-palette-gradient-1);
+  }
 }
 
 .attribution {
