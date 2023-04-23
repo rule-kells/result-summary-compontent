@@ -20,14 +20,17 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./css/styles.css" />
+    <script defer src="./main.js"></script>
   </head>
   <body>
     <main class="card card--bg">
       <div class="card__result result--accent">
         <h1 class="result__heading fs-m">Your Result</h1>
-        <p class="fs-body result__score circle">
-          <span class="fs-score-num fs-xl">76</span> of 100
-        </p>
+        <div class="circle">
+          <p class="fs-body result__score">
+            <span class="fs-score-num fs-xl" data-option="76">76</span> of 100
+          </p>
+        </div>
         <div class="result__content">
           <h2 class="result__content--title fs-l">Great</h2>
           <p class="result__content--body">
@@ -36,52 +39,9 @@
         </div>
       </div>
 
-      <div class="card__summary summary--light spacer">
+      <div class="card__summary card__summary--light">
         <h2 class="summary__title fs-m">Summary</h2>
-        <div class="reaction">
-          <img
-            class="reaction__img"
-            src="./assets/images/icon-reaction.svg"
-            alt=""
-          />
-          <h3 class="reaction__title fs-s">Reaction</h3>
-          <p class="reaction__score">
-            <span class="reaction__score--num fs-s">80</span> / 100
-          </p>
-        </div>
-        <div class="memory">
-          <img
-            class="memory__img"
-            src="./assets/images/icon-memory.svg"
-            alt=""
-          />
-          <h3 class="memory__title fs-s">Memory</h3>
-          <p class="memory__score">
-            <span class="memory__score--num fs-s">92</span> / 100
-          </p>
-        </div>
-        <div class="verbal">
-          <img
-            class="verbal__img"
-            src="./assets/images/icon-verbal.svg"
-            alt=""
-          />
-          <h3 class="verbal__title fs-s">Verbal</h3>
-          <p class="verbal__score">
-            <span class="verbal__score--num fs-s">61</span> / 100
-          </p>
-        </div>
-        <div class="visual">
-          <img
-            class="visual__img"
-            src="./assets/images/icon-visual.svg"
-            alt=""
-          />
-          <h3 class="visual__title fs-s">Visual</h3>
-          <p class="visual__score">
-            <span class="visual__score--num fs-s">72</span> / 100
-          </p>
-        </div>
+        <div class="summary__components--wrapper spacer"></div>
         <button type="button" class="btn">Continue</button>
       </div>
     </main>
