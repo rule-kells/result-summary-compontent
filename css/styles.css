@@ -106,9 +106,13 @@ body {
 
 @media (min-width: 48em) {
   body {
-    display: grid;
-    place-items: center;
-    min-height: 100vh;
+    /* display: grid;
+    justify-items: center;
+    align-items: center; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }
 
