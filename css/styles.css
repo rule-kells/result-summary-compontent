@@ -187,6 +187,7 @@ Layout Land and Cube CSS
   box-shadow: var(--box-shadow);
   text-align: center;
   overflow: hidden;
+  background-color: white;
 }
 
 @media (min-width: 48em) {
