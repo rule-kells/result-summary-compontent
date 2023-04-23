@@ -66,10 +66,10 @@
 
   --ff-primary: "Hanken Grotesk", sans-serif;
   --br: 2rem;
-  --box-shadow: 0px 30px 60px 0px hsla(224, 82%, 58%, 0.15);
+  --box-shadow: 0px 1.875rem 3.75rem 0px hsla(224, 82%, 58%, 0.15);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 48rem) {
   :root {
     --fs-xl: 4.5rem;
     --fs-l: 2rem;
@@ -101,10 +101,10 @@ body {
   font-size: var(--fs-body);
   font-weight: var(--fw-500);
   line-height: 1.5em;
-  /*     min-height: calc(100vh - 100px); */
+  min-height: 100vh;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 48em) {
   body {
     display: grid;
     place-items: center;
@@ -189,7 +189,7 @@ Layout Land and Cube CSS
   overflow: hidden;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 48em) {
   .card {
     width: clamp(20ch, 90%, 46rem);
     border-radius: var(--br);
@@ -198,7 +198,7 @@ Layout Land and Cube CSS
 }
 
 .card__result {
-  padding: 24px 57px 40px;
+  padding: 1.5rem 3.5625rem 2.5rem;
   border-radius: 0 0 var(--br) var(--br);
 }
 
@@ -210,7 +210,7 @@ Layout Land and Cube CSS
 }
 
 .result__content--title {
-  margin-bottom: 8px;
+  margin-bottom: 0.5rem;
 }
 
 .result--accent .fs-m {
@@ -220,42 +220,42 @@ Layout Land and Cube CSS
 .result__score {
   color: hsl(var(--clr-palette-neutral-hsl-100), 0.51);
   font-weight: var(--fw-700);
-  margin: 24px auto 24px;
+  margin: 1.5rem auto 1.5rem;
   line-height: 1.3;
 }
 
 .circle {
   --br: 50%;
-  width: 140px;
-  height: 140px;
+  width: 8.75rem;
+  height: 8.75rem;
   background: var(--circle);
   border-radius: var(--br);
   display: grid;
   place-content: center;
-  margin: 24px auto;
+  margin: 1.5rem auto;
 }
 
 .fs-score-num {
   display: block;
   line-height: 1;
-  margin-bottom: 4px;
+  margin-bottom: 0.25rem;
 }
 
 .card__summary {
-  padding: 24px 30px 30px;
+  padding: 1.5rem 1.875rem 1.875rem;
   text-align: left;
   /* flex: 1; */
 }
 
 .summary__components--wrapper > .summary__component {
-  --br: 12px;
+  --br: 0.75rem;
   --reaction-bg: hsl(var(--clr-palette-primary-hsl-400), 0.1);
   --memory-bg: hsl(var(--clr-palette-primary-hsl-600), 0.1);
   --verbal-bg: hsl(var(--clr-palette-primary-hsl-300), 0.1);
   --visual-bg: hsl(var(--clr-palette-primary-hsl-800), 0.1);
   /* --memory-bg: ; */
 
-  width: max(100%, 288px);
+  width: max(100%, 18rem);
 }
 
 .summary__component {
@@ -288,7 +288,7 @@ Layout Land and Cube CSS
 }
 
 .summary__title {
-  margin-bottom: 24px;
+  margin-bottom: 1.5rem;
 }
 
 .reaction__title {
@@ -311,16 +311,21 @@ Layout Land and Cube CSS
   margin-bottom: 0;
 }
 
+.summary__score--num {
+  /* display: inline-block; */
+  margin-right: 0.25rem;
+}
+
 .btn {
   display: inline-block;
-  margin: 24px 0 0;
+  margin: 1.5rem 0 0;
 }
 
 .summary__component > img,
 .summary__component > img,
 .summary__component > img,
 .summary__component > img {
-  margin-right: 12px;
+  margin-right: 0.75rem;
 }
 
 .reaction__score--num.fs-s,
@@ -343,27 +348,38 @@ Layout Land and Cube CSS
 }
 
 .btn {
-  --br: 128px;
+  --br: 8rem;
 
   cursor: pointer;
-  width: max(100%, 288px);
+  width: max(100%, 18rem);
   background: var(--clr-palette-neutral-800);
   color: var(--white);
   border: none;
-  margin-top: 24px;
-  padding: 17px 0;
+  margin-top: 1.5rem;
+  padding: 1.0625rem 0;
   box-shadow: var(--box-shadow);
   border-radius: var(--br);
 }
 
-@media (min-width: 768px) {
+.attribution {
+  position: absolute;
+  inset: auto auto 0;
+  font-size: 0.6875rem;
+  margin-inline: 0 auto;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+@media (min-width: 48em) {
   body {
     line-height: 1.32;
   }
 
   .card__result {
     border-radius: var(--br);
-    padding: 38px 54px 46px;
+    padding: 2.375rem 3.375rem 2.875rem;
   }
 
   .card__result,
@@ -372,39 +388,29 @@ Layout Land and Cube CSS
   }
 
   .circle {
-    width: 200px;
-    height: 200px;
-    margin: 35px auto 28px;
+    width: 12.5rem;
+    height: 12.5rem;
+    margin: 2.1875rem auto 1.75rem;
   }
 
   .result__content--title {
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
   }
 
   .card__summary {
-    padding: 38px 40px 46px;
+    padding: 2.375rem 2.5rem 2.875rem;
   }
 
   .summary__title {
-    margin-bottom: 28px;
+    margin-bottom: 1.75rem;
   }
 
   .btn {
-    margin-top: 41px;
+    margin-top: 2.5625rem;
   }
 
   .btn:active,
   .btn:hover {
     background: var(--clr-palette-gradient-1);
   }
-}
-
-.attribution {
-  position: absolute;
-  inset: auto auto 0;
-  font-size: 0.6875rem;
-  text-align: center;
-}
-.attribution a {
-  color: hsl(228, 45%, 44%);
 }
